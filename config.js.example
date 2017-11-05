@@ -1,0 +1,9 @@
+module.exports ={
+  database:{
+    host: "",
+    user: "",
+    password: "",
+    database: ""
+  },
+  gamblingExponent: 1.1
+}
