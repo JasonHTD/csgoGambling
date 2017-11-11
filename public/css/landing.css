@@ -1,48 +1,40 @@
-body,html{
-
-background-color: #D4E4BC;
-
+html{
+  min-height: 100%;
+  background-color: #A1B5D8;
+  /*overflow-x: hidden;*/
 }
-
-
-.h1{
-
-  text-align: center;
-  color: #456;
-
+body{
+  height: 100%;
 }
-
-.h2{
-
-text-align: center;
-color: #6CC551;
-
-}
-
-.h3{
-
-text-align: center;
-color: #A4036F;
-
-}
-
 .disclaimer{
 
 text-align: center;
 color: #23022E;
 
 }
-
-.p{
-
-text-align: center;
-color: #209EE8;
+.text{
+  font-family: 'Raleway', sans-serif;
+}
+.text.left{
+  text-align: left;
+}
+.text.center{
+  text-align: center;
 
 }
-
-.li{
-
-text-align: center;
-color: #23022E;
-
+.text.right{
+  text-align: right;
+}
+.text.light{
+  color: #EEE;
+}
+.text.dark{
+  color: #333;
+}
+#page-container{
+  min-height: 100%;
+  background-color: #A1B5D8;
+}
+.maginalize{
+  margin-top: 10vh;
 }
