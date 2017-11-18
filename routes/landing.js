@@ -6,8 +6,10 @@ var loadJS = require("../middlewares/loadJS");
 
 
 router.use(loadCSS([
+  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
   "css/landing.css",
-  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  "css/navbar.css",
+  "css/login.css"
 ]));
 
 router.use(loadJS([
@@ -17,7 +19,7 @@ router.use(loadJS([
 router.get("/", function(req, res, next){
 
 
-res.render("landing");
+res.render("landingLoggedOut");
 
 });
 

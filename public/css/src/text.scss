@@ -1,0 +1,47 @@
+.text{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+}
+.text.small{
+font-size: 14px;
+}
+.text.medium{
+font-size: 22px;
+}
+.text.large{
+font-size: 32px;
+}
+.text.left{
+  text-align: left;
+}
+.text.center{
+  text-align: center;
+}
+.text.right{
+  text-align: right;
+}
+.text.light{
+  color: #EEE;
+}
+.text.light::placeholder{
+  color: #EEE;
+  opacity: 1;
+}
+.text.light:-ms-input-placeholder{
+  color: #EEE;
+}
+.text.light::-ms-input-placeholder{
+  color: #EEE;
+}
+.text.center::placeholder{
+  text-align: center;
+}
+.text.center:-ms-input-placeholder{
+  text-align: center;
+}
+.text.center::-ms-input-placeholder{
+  text-align: center;
+}
+.text.dark{
+  color: #333;
+}
