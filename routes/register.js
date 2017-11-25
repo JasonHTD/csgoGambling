@@ -7,6 +7,7 @@ var validateRegistration = require("../middlewares/validateRegistration");
 var confirmEmail = require("../middlewares/confirmEmail");
 
 router.use(loadCSS([
+  "css/dist/login.min.css"
 ]));
 
 router.use(loadJS([

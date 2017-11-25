@@ -6,14 +6,13 @@ var loadJS = require("../middlewares/loadJS");
 var validateLogin = require("../middlewares/validateLogin");
 
 router.use(loadCSS([
-  "css/login.css"
+  "css/dist/login.min.css"
 ]));
 
 router.use(loadJS([
 ]));
 
 router.get("/", function(req, res, next){
-
   res.render("login");
 
 });
