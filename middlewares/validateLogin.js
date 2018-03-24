@@ -19,6 +19,7 @@ module.exports = function(req, res, next) {
       return;
     }
     res.locals.validLogin = true;
+    req.session.username = user.username;
     next();
     return;
   });

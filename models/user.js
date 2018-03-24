@@ -3,6 +3,8 @@ var bcrypt = require("bcryptjs");
 var Utilities = require("./utilities");
 var mailgun = require("mailgun-js")({apiKey: "key-8c05606a31b48b6277dd6739685c7179", domain: "sandboxef6e5a150f08450e968b0ddd4ab6ca4e.mailgun.org"});
 var fs = require("fs");
+var handlebars = require("handlebars");
+var config = require("../config");
 
 var user = function() {
 
@@ -74,6 +76,11 @@ user.register = function(registrant, callback) {
   }
 
   if (registrant.password != registrant.passwordConfirm) {
+    callback(null, false);
+    return;
+  }
+
+  if (registrant.password.length < 1) {
     callback(null, false);
     return;
   }
@@ -153,31 +160,111 @@ user.register = function(registrant, callback) {
 
 user.confirmEmail = function(user, callback) {
 
-db.pool.getConnection(function(err, connection){
-  if (err) {
-    callback(err);
-    return;
-  }
-  connection.query("SELECT emailConfirmCode FROM members WHERE emailConfirmCode = ?", [user.emailConfirmCode], function(err, rows, fields){
+  db.pool.getConnection(function(err, connection){
     if (err) {
       callback(err);
       return;
     }
-    if (rows.length == 0) {
-      callback("Invalid confirm code");
-      return;
-    }
-    connection.query("UPDATE members SET emailConfirmCode = NULL WHERE BINARY emailConfirmCode = ?", [user.emailConfirmCode], function(err, rows, fields){
+    connection.query("SELECT emailConfirmCode FROM members WHERE emailConfirmCode = ?", [user.emailConfirmCode], function(err, rows, fields){
       if (err) {
         callback(err);
         return;
       }
-      callback(null);
-      return;
+      if (rows.length == 0) {
+        callback("Invalid confirm code");
+        return;
+      }
+      connection.query("UPDATE members SET emailConfirmCode = NULL WHERE BINARY emailConfirmCode = ?", [user.emailConfirmCode], function(err, rows, fields){
+        if (err) {
+          callback(err);
+          return;
+        }
+        callback(null);
+        return;
+      });
     });
   });
-});
+}
 
+user.checkResetCode = function(user, callback) {
+  db.pool.query("SELECT passwordResetCode FROM members WHERE passwordResetCode = ?", [user.resetCode], function(err, rows, fields){
+    if (err) {
+      throw "Error accessing members table";
+    }
+    if (rows.length == 1) {
+      callback(null);
+      return;
+    }
+    callback("Invalid reset code");
+    return;
+  });
+}
+user.sendResetCode = function(user, callback) {
+  Utilities.generateRandomString(32, function(hash) {
+    db.pool.query("UPDATE members SET passwordResetCode = ? WHERE email = ?", [hash, user.email], function(err, rows, fied){
+      if (err) {
+        throw "Error accessing members table";
+      }
+      else if (rows.affectedRows = 0) {
+        callback("Email could not be found");
+        return;
+      }
+      db.pool.query("SELECT username FROM members WHERE email = ?", [user.email], function(err, rows, field) {
+        if (err) {
+          throw "Error accessing members table"
+        }
+        fs.readFile("./views/mail/resetPassword.hbs", function(err, data) {
+          if (err) {
+            throw "Cannot access /views/mail/resetPassword.hbs";
+          }
+          var htmlTemplate = handlebars.compile(data.toString());
+          var handlebarsData = {
+            username: rows[0].username,
+            url: "http://"+config.host+"/password-reset?resetCode="+hash+"",
+          };
+          var html = htmlTemplate(handlebarsData);
+          var mailData = {
+            from: config.mail.name+" <"+config.mail.email+">",
+            to: user.email,
+            subject: "Password Reset Code",
+            text: "Hello "+handlebarsData.username+" here is your password reset code: "+handlebarsData.url,
+            html: html,
+          };
+          mailgun.messages().send(mailData, function(err, body) {
+            if (err) {
+              callback("Error sending password reset email");
+              return;
+            }
+            callback(null);
+            return;
+          });
+        });
+      });
+    });
+  });
+};
+
+user.setPassword = function(user, callback) {
+  if (user.resetCode) {
+    bcrypt.hash(user.password, config.hashComplexity, function(err, hash) {
+      if (err) {
+        callback(err);
+        return;
+      }
+      db.pool.query("UPDATE members SET password = ?, passwordResetCode = NULL WHERE passwordResetCode = ?", [hash, user.resetCode], function(err, rows, fields) {
+        if (err) {
+          callback(err);
+          return;
+        }
+        if (rows.affectedRows!= 0) {
+          callback(null);
+          return;
+        }
+        callback("Server Error")
+        return;
+      });
+    });
+  }
 }
 
 module.exports = user;

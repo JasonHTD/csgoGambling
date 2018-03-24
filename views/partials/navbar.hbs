@@ -1,9 +1,13 @@
 <nav class="navbar">
-  <a href="landing"><img class="navbar-logo" src="images/x.png" alt="Image failed to load" width="28px"></a>
+  <a href="/landing"><img class="navbar-logo" src="/images/x.png" alt="Image failed to load" width="28px"></a>
+  <p class="text light medium page-title">{{currentPage}}</p>
   <ul>
-    <li><a href="home" class="navbar-link">Home</a></li>
-    <li><a href="login" class="navbar-link">Login</a></li>
-    <li><a href="register" class="navbar-link">Register</a></li>
-    <li><a href="password-reset" class="navbar-link">Forgot Password?</a></li>
+    {{#each navbar}}
+    {{#if selected}}
+    <li><a href="/{{link}}" class="selected navbar-link">{{title}}</a></li>
+    {{else}}
+    <li><a href="/{{link}}" class="navbar-link">{{title}}</a></li>
+    {{/if}}
+    {{/each}}
   </ul>
 </nav>

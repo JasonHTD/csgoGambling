@@ -11,7 +11,43 @@ utilities.generateRandomString = function(numChars, callback) {
   return;
 }
 
+utilities.linkToTitle = function(link) {
+  switch (link) {
+    case "home":
+    return "Home";
+    break;
+    case "crates":
+    return "Cases";
+    break;
+    case "inventory":
+    return "Inventory";
+    break;
+    case "deposit":
+    return "Deposit";
+    break;
+    case "withdraw":
+    return "Withdraw";
+    break;
+    case "logout":
+    return "Logout";
+    break;
+    case "login":
+    return "Login";
+    break;
+    case "password-reset":
+    return "Password Reset";
+    break;
+    case "register":
+    return "Register";
+    break;
+    case "landing":
+    return "Landing";
+    break;
 
+    default:
+    return "N/A";
+  }
+}
 
 
 

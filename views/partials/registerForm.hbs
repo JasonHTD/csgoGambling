@@ -1,5 +1,5 @@
 <div class="login-container">
-  <form class="-form" action="" method="post" autocomplete="off">
+  <form class="login-form" action="" method="post" autocomplete="off">
     <div class="control-group">
       <input class="text center medium light" type="text" name="username" value="" placeholder="Username">
     </div>
@@ -24,9 +24,14 @@
     <div class="control-group">
       <input class="text center medium light" type="submit" name="register" value="Register">
     </div>
-    <div class="control-group">
+    <div class="control-group text center">
       <a class="link-block text center small light" href="password-reset">Password Reset</a>
       <a class="link-block text center small light" href="login">Login</a>
+    </div>
+    <div class="control-group text center">
+      {{#each errors}}
+      <strong> <p class="red text center medium light">{{this}}</p> </strong>
+      {{/each}}
     </div>
   </form>
 </div>

@@ -1,0 +1,37 @@
+<div class="container-fluid" id="page-container">
+<div class="row">
+{{#each items}}
+<div class="no-padding col-lg-3 col-md-4 col-sm-6">
+{{>itemCard}}
+</div>
+{{/each}}
+</div>
+<div class="btn-div">
+<button class="btn btn-default btn-lg" id="button" type="button" name="button">Click me to roll!</button>
+</div>
+</div>
+<script>
+$("#button").on("click", function(){
+  $.ajax({
+    type: "POST",
+    url: "/ajax",
+    data: {
+      ajaxid: "openCrate",
+      crateid: 1
+    }
+  }).done(function(item){
+    console.log(item);
+  });
+});
+</script>
+<style media="screen">
+  #page-container{
+    background-size: 100% auto;
+    background-image: url("/images/Messier 82.jpg");
+    height: 100%;
+  }
+  .btn-div{
+    margin: 0 0 250px 0;
+    text-align: center;
+  }
+</style>

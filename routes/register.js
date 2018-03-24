@@ -5,6 +5,9 @@ var loadCSS = require("../middlewares/loadCSS");
 var loadJS = require("../middlewares/loadJS");
 var validateRegistration = require("../middlewares/validateRegistration");
 var confirmEmail = require("../middlewares/confirmEmail");
+var checkLoggedOut = require("../middlewares/checkLoggedOut");
+
+router.use(checkLoggedOut);
 
 router.use(loadCSS([
   "css/dist/login.min.css"

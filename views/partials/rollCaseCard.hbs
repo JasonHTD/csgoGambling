@@ -1,0 +1,38 @@
+<a href="crates/{{crateid}}">
+<div class="card" id="crate-{{crateid}}">
+<img class="card-image" src="images\crate.png" alt="Picture of a case">
+<div class="card-text">
+<h1 class="text nolink center medium no-margin-bottom">{{crateName}}</h1>
+<h1 class="text nolink center small small-margin-top">${{price}}</h1>
+</div>
+</div>
+</a>
+<style>
+.card{
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-bottom: 35px;
+
+}
+.card:hover{
+  box-shadow: 10px 10px 20px 0 rgba(0,0,0,0.2);
+}
+.card-text{
+  padding: 2px 16px;
+  width: 100%;
+  height: 100%;
+  background-color: #DDD;
+}
+.card-image{
+  margin: auto;
+  width: 100%;
+}
+a div h1{
+  text-decoration: none !important;
+  color: #364739;
+}
+a div h1:hover{
+  text-decoration: none !important;
+}
+</style>

@@ -1,0 +1,5 @@
+1. Landing page needs to be created - FE
+2. Home page needs to be created - 4 Buttons - FE
+3.  FIx the fvcking navigation
+6.  Find design scheme for navigation
+

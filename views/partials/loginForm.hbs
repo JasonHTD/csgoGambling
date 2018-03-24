@@ -13,6 +13,11 @@
       <a class="link-block text center small light" href="password-reset">Password Reset</a>
       <a class="link-block text center small light" href="register">Register</a>
     </div>
+    <div class="control-group text center">
+      {{#each errors}}
+      <strong> <p class="text center medium light">{{this}}</p> </strong>
+      {{/each}}
+    </div>
   </form>
 </div>
 <link rel="stylesheet" href="css/dist/login.min.css">

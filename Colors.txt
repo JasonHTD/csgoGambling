@@ -1,0 +1,47 @@
+  &.white{
+      background-color: #B0C3D9;
+      &:hover{
+        background-color: #4F6D8E;
+      }
+    }
+    &.light-blue{
+      background-color: #5E98D9;
+      &:hover{
+        background-color: #184D89;
+      }
+    }
+    &.dark-blue{
+      background-color: #4469FF;
+      &:hover{
+        background-color: #0327B5;
+      }
+    }
+    &.purple{
+      background-color: #8847FF;
+      &:hover{
+        background-color: #4205B5;
+      }
+    }
+    &.pink{
+      background-color: #D139E3;
+      &:hover{
+        background-color: #890099;
+      }
+    }
+    &.red{
+      background-color: #E94C4F;
+      &:hover{
+        background-color: #9E0C0F;
+      }
+    }
+    &.gold{
+      background-color: #C5952F;
+      &:hover{
+        background-color: #7A5300;
+      }
+    }
+    &.orange{
+      background-color: #F2BC4B;
+      &:hover{
+        background-color: #A8760A;
+      }

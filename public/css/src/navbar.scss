@@ -4,7 +4,7 @@
   width: 100%;
   position: fixed;
   margin-bottom: 0;
-  background: rgba(255, 255, 255, 0);
+  background: rgba(0, 0, 0, 0.25);
   transition: 0.4s;
 }
 ul{
@@ -31,6 +31,9 @@ li a{
   color: #FFF;
   opacity: 0.35;
 }
+li a.selected{
+opacity: 0.9;
+}
 .navbar-logo{
   float: left;
   display: inline;
@@ -40,7 +43,12 @@ li a{
   top: 1vh;
 }
 li a:hover{
-  color: #FFF;
-  opacity: 1;
+  opacity: 0.9;
   text-decoration: none;
+  color: #FFF;
+}
+.page-title{
+  float: left;
+  margin-left: 60px;
+  margin-top: 10px;
 }

@@ -12,7 +12,7 @@ module.exports = function(req, res, next) {
     firstName: req.body.firstName,
     lastName: req.body.lastName
   };
-  User.register(registrant, function(err, toFix, validRegistration){
+  User.register(registrant, function(err, validRegistration){
     if (err) {
       console.log(err);
       res.locals.validRegistration = false;
@@ -24,6 +24,8 @@ module.exports = function(req, res, next) {
       next();
       return;
     }
+    res.locals.emailLink = registrant.email.split("@")[1];
+
     res.locals.validRegistration = true;
     next();
     return;

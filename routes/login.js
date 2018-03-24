@@ -4,6 +4,9 @@ var router = express.Router();
 var loadCSS = require("../middlewares/loadCSS");
 var loadJS = require("../middlewares/loadJS");
 var validateLogin = require("../middlewares/validateLogin");
+var checkLoggedOut = require("../middlewares/checkLoggedOut");
+
+router.use(checkLoggedOut);
 
 router.use(loadCSS([
   "css/dist/login.min.css"
@@ -19,7 +22,7 @@ router.get("/", function(req, res, next){
 
 router.post("/", validateLogin, function(req, res, next){
   if (res.locals.validLogin) {
-    res.redirect("landing");
+    res.redirect("/home");
   }
   else {
     res.render("login");

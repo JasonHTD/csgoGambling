@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class=" container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-info">
+            <div class="title">
+              <h1 class="text large">AK-47</h1>
+            </div>
+            <div class="gun-pic">
+              <img class="gun" src="Ak-47 Redline-3" alt="" />
+            </div>
+            <div class="hover-info">
+              <h4 class="text xlarge">45% Chance</h4>
+            </div>
+            <div class="extra-info">
+              <h4 class="text small">Redline</h4>
+              <h4 class="text small">Field Tested</h4>
+            </div>
+          </div>
+          <div class="card-tab">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<style media="screen">
+.card{
+  width: 80%;
+  height: 200px;
+  border-radius: 15px;
+  margin: 10px 25px 10px 25px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  overflow: hidden;
+  transition: 0.3s;
+}
+.card:hover .card-tab{
+background-color: #D139E340;
+}
+.card:hover .hover-info{
+  opacity: 0.75;
+  bottom: 40%;
+}
+.card-info{
+  text-align: center;
+  padding: 10px;
+  width: 85%;
+  height: 200px;
+  margin: 0;
+  float: left;
+  overflow: hidden;
+  background-color: #D139E340;
+}
+.card-tab{
+  width: 15%;
+  background-color: #D139E3E1;
+  height: 200px;
+  margin: 0;
+  float: right;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: 0.3s;
+}
+.container-fluid{
+  background-image: url("Messier 82");
+  height: 100vh;
+  background-size: 100% auto;
+}
+.text{
+  color: #FFF;
+  text-align: center;
+}
+.text.large{
+  font-size: 20px;
+}
+.text.small{
+  font-size: 14px;
+}
+.text.xlarge{
+  font-size: 28px;
+}
+.gun{
+  object-fit: cover;
+  width: 50%;
+  margin: -20% 0;
+  top: 35%;
+  position: absolute;
+  left: 15%;
+}
+.title{
+  top: 0;
+  position: absolute;
+  left: 37.5%;
+}
+.extra-info{
+  bottom: 5px;
+  position: absolute;
+  left: 35%;
+}
+.hover-info{
+  position: absolute;
+  bottom: 100px;
+  left: 27%;
+  opacity: 0;
+  transition: bottom .3s, opacity .3s cubic-bezier(.33,.66,.66,1);
+}
+</style>
