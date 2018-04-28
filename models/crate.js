@@ -147,7 +147,7 @@ crate.open = function(username, crateid, callback) {
 }
 
 crate.list = function(callback) {
-  db.pool.query("SELECT crateid, price, numItems, crateName, dateCreated FROM crates WHERE active = 1", function(err, rows, fields) {
+  db.pool.query("SELECT crateid, price, numItems, crateName, dateCreated, icon, color FROM crates WHERE active = 1", function(err, rows, fields) {
     if (err) {
       callback(err);
       return;
@@ -159,7 +159,9 @@ crate.list = function(callback) {
         price: rows[i].price,
         numItems: rows[i].numItems,
         crateName: rows[i].crateName,
-        dateCreated: rows[i].dateCreated
+        dateCreated: rows[i].dateCreated,
+        icon: rows[i].icon,
+        color: rows[i].color
       });
     }
     callback(null, crates);

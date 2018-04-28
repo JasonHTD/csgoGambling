@@ -1,5 +1,12 @@
 1. Landing page needs to be created - FE
 2. Home page needs to be created - 4 Buttons - FE
-3.  FIx the fvcking navigation
-6.  Find design scheme for navigation
+7. Add inventory system
+8. Add deposit 
+9. Add withdrawl
+10. Connect to steam api
+11. Finish all page designs
+12. Set up currency system
+13. Add more guns/cases
+14. Add case opening animation
+15. 
 

@@ -1,0 +1,175 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="block-container">
+      <div class="block top-left">
+        <i class="top-left-picture"></i>
+        <h1 class="xlarge text block-title">Cases</h1>
+        <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="block-content">
+
+        </div>
+      </div>
+      <div class="block top-right">
+        <div class="block-content">
+          <h1 class="xlarge text block-title">Inventory</h1>
+        </div>
+      </div>
+      <div class="block bottom-left">
+        <div class="block-content">
+          <h1 class="xlarge text block-title">Deposit</h1>
+        </div>
+      </div>
+      <div class="block bottom-right">
+        <div class="block-content">
+          <h1 class="xlarge text block-title">Withdraw</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<style media="screen">
+.top-left-picture{
+  background-image: url("purple-crate.png");
+  background-position: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 30%;
+}
+.block-container{
+  display: block;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+.block-content{
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  transition: 0.3s;
+}
+.block-description{
+  max-width: 25%;
+  transition: 0.3s;
+  opacity: 0;
+  overflow: auto;
+  font-style: italic;
+  text-align: center;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+.block-title{
+  left: 5%;
+  bottom: 5%;
+  position: absolute;
+  transition: 0.3s
+}
+.top-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color: #FFF;
+}
+.top-right{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  background-color: #FFF;
+}
+.bottom-left{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color: #FFF;
+}
+.bottom-right{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  background-color: #FFF;
+}
+.block{
+transition: 0.3s;
+}
+.top-left:hover{
+  background-color: #823;
+}
+.top-right:hover{
+  background-color: #AFD;
+}
+.bottom-left:hover{
+  background-color: #18F;
+}
+.bottom-right:hover{
+  background-color: #5AA;
+}
+
+.top-left:hover .block-title{
+  color: #B961AC;
+  bottom: 70%;
+}
+.top-right:hover .block-title{
+  color: #FFF;
+}
+.bottom-left:hover .block-title{
+  color: #FFF;
+}
+.bottom-right:hover .block-title{
+  color: #FFF;
+}
+.top-left:hover .block-description{
+  opacity: 1;
+}
+.top-left:hover .block-description{
+  background-color: #823;
+}
+.top-left:hover .block-description{
+  background-color: #823;
+}
+.top-left:hover .block-description{
+  background-color: #823;
+}
+.top-left:hover .block-content{
+
+}
+.top-right:hover .block-content{
+  top: 5vh;
+}
+.bottom-left:hover .block-content{
+  top: 5vh;
+}
+.bottom-right:hover .block-content{
+  top: 5vh;
+}
+
+.text{
+  color: #000;
+  transition: 0.3s;
+}
+.text.large{
+  font-size: 20px;
+}
+.text.small{
+  font-size: 14px;
+}
+.text.xlarge{
+  font-size: 80px;
+}
+</style>

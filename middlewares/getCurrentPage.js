@@ -9,7 +9,10 @@ module.exports = function(req, res, next) {
   }
   else {
     res.locals.currentPage = Utilities.linkToTitle(req.url.split("/")[1]);
-    res.locals.navbar[res.locals.navbar.indexOf(res.locals.navbar.find(function(e) { return e.title == res.locals.currentPage; }))].selected = true;
+    var index = res.locals.navbar.indexOf(res.locals.navbar.find(function(e) { return e.title == res.locals.currentPage; }));
+    if (res.locals.navbar[index]) {
+      res.locals.navbar[index].selected == true;
+    }
   }
   res.locals.title = res.locals.currentPage;
   next();
