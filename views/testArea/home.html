@@ -9,27 +9,38 @@
     <div class="block-container">
       <div class="block top-left">
         <i class="top-left-picture"></i>
-        <h1 class="xlarge text block-title">Cases</h1>
-        <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="block-content">
-
+          <h1 class="xlarge text block-title">Cases</h1>
+          <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </div>
       <div class="block top-right">
+        <i class="top-right-picture"></i>
         <div class="block-content">
           <h1 class="xlarge text block-title">Inventory</h1>
+          <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </div>
       <div class="block bottom-left">
+        <i class="bottom-left-picture"></i>
         <div class="block-content">
           <h1 class="xlarge text block-title">Deposit</h1>
+          <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </div>
       <div class="block bottom-right">
+        <i class="bottom-right-picture"></i>
         <div class="block-content">
           <h1 class="xlarge text block-title">Withdraw</h1>
+          <p class="text medium block-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </div>
     </div>
@@ -42,7 +53,34 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 30%;
+  left: 40%;
+}
+.top-right-picture{
+  background-image: url("awp-asiimov.png");
+  background-position: 100% 100%;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  background-repeat: repeat-y;
+}
+.bottom-left-picture{
+  background-image: url("safe.png");
+  background-position: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  background-size: 25%;
+}
+.bottom-right-picture{
+  background-image: url("safe-open.png");
+  background-position: 120% 100%;
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  background-size: 55%;
 }
 .block-container{
   display: block;
@@ -55,23 +93,25 @@
   left: 5%;
   bottom: 5%;
   transition: 0.3s;
+  color: #000;
+  width: 30%;
 }
 .block-description{
-  max-width: 25%;
   transition: 0.3s;
-  opacity: 0;
+  opacity: 1;
   overflow: auto;
   font-style: italic;
   text-align: center;
-  position: absolute;
   left: 5%;
   bottom: 5%;
+  color: inherit;
 }
 .block-title{
   left: 5%;
-  bottom: 5%;
-  position: absolute;
-  transition: 0.3s
+  bottom: 15%;
+  transition: 0.3s;
+  color: inherit;
+  text-align: center;
 }
 .top-left{
   position: absolute;
@@ -112,55 +152,40 @@ transition: 0.3s;
   background-color: #823;
 }
 .top-right:hover{
-  background-color: #AFD;
+  background-color: #BCD2EE;
 }
 .bottom-left:hover{
-  background-color: #18F;
+  background-color: #498E36;
 }
 .bottom-right:hover{
-  background-color: #5AA;
+  background-color: #744FC6;
 }
-
 .top-left:hover .block-title{
   color: #B961AC;
-  bottom: 70%;
 }
 .top-right:hover .block-title{
-  color: #FFF;
+  color: #E5571F;
 }
 .bottom-left:hover .block-title{
-  color: #FFF;
+  color: #EEE;
 }
 .bottom-right:hover .block-title{
-  color: #FFF;
+  color: #EEE;
 }
 .top-left:hover .block-description{
-  opacity: 1;
+  color: #B961AC;
 }
-.top-left:hover .block-description{
-  background-color: #823;
+.top-right:hover .block-description{
+  color: #E5571F;
 }
-.top-left:hover .block-description{
-  background-color: #823;
+.bottom-left:hover .block-description{
+  color: #EEE;
 }
-.top-left:hover .block-description{
-  background-color: #823;
-}
-.top-left:hover .block-content{
-
-}
-.top-right:hover .block-content{
-  top: 5vh;
-}
-.bottom-left:hover .block-content{
-  top: 5vh;
-}
-.bottom-right:hover .block-content{
-  top: 5vh;
+.bottom-right:hover .block-description{
+  color: #EEE;
 }
 
 .text{
-  color: #000;
   transition: 0.3s;
 }
 .text.large{
