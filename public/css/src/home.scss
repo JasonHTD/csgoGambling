@@ -5,6 +5,7 @@
   height: 100%;
   position: absolute;
   left: 40%;
+  filter: grayscale(100%);
 }
 .top-right-picture{
   background-image: url("/images/home/awp-asiimov.png");
@@ -14,6 +15,7 @@
   position: absolute;
   left: 40%;
   background-repeat: repeat-y;
+  filter: grayscale(100%);
 }
 .bottom-left-picture{
   background-image: url("/images/home/safe.png");
@@ -134,4 +136,10 @@ transition: 0.3s;
 }
 .bottom-right:hover .block-description{
   color: #EEE;
+}
+.top-left:hover .top-left-picture{
+  filter: grayscale(0%);
+}
+.top-right:hover .top-right-picture{
+  filter: grayscale(0%);
 }

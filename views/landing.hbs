@@ -1,3 +1,41 @@
-<div class="container-fluid" style="margin-top: 20vh">
-<a href="login">Go to Login</a>
+<div class="container-fluid" id="page-container">
+<h1 class="text center light xxlarge">Gambling <br>4<br> Kids</h1>
+<h2 class="text center light medium">Counter Strike Global Offensive Gambling (4 Kids)</h2>
+<div class="inline-div">
+  <form class="inline" action="/login" method="get">
+    <input type="submit" value="Login" class="text medium light">
+  </form>
+<form class="inline" action="/register" method="get">
+  <input type="submit" value="Register" class="text medium light">
+</form>
 </div>
+</div>
+<style media="screen">
+#page-container{
+  background-size: auto 100%;
+  background-image: url("/images/landing-sky.jpg");
+  height: 100%;
+  padding: 25vh;
+}
+.inline-div{
+  text-align: center;
+}
+.inline{
+  display: inline;
+}
+input{
+  width: 200px;
+  height: 50px;
+  padding: 8px 8px;
+  color: #EEE;
+}
+input[type="submit"]{
+  background: transparent;
+  border: solid 1px #EEE;
+  transition: 0.5s;
+}
+input[type="submit"]:hover{
+  background: #EEE;
+  color: #333;
+}
+</style>
