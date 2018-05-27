@@ -1,4 +1,5 @@
 <div class="container-fluid" id="page-container">
+  <div class="card-container">
   <div class="row">
   {{#each crates}}
   <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
@@ -6,11 +7,15 @@
   </div>
   {{/each}}
   </div>
+  </div>
 </div>
 <style media="screen">
 #page-container{
   background-size: 100% auto;
   background-image: url("/images/Messier 82.jpg");
   height: 100%;
+}
+.card-container{
+  margin-top: 10px;
 }
 </style>
