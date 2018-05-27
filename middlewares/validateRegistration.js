@@ -14,12 +14,13 @@ module.exports = function(req, res, next) {
   };
   User.register(registrant, function(err, validRegistration){
     if (err) {
-      console.log(err);
+      res.locals.errors.push(err);
       res.locals.validRegistration = false;
       next();
       return;
     }
     if (!validRegistration) {
+      res.locals.errors.push(err);
       res.locals.validRegistration = false;
       next();
       return;

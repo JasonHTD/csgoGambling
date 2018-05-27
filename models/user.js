@@ -14,12 +14,12 @@ var user = function() {
 user.login = function(user, callback) {
 
   if (user.username.length == 0 || user.password.length == 0) {
-    callback(null, false);
+    callback("Username or Password not entered.", false);
     return;
   }
 
   if (user.username.length > 26) {
-    callback(null, false);
+    callback("Username must be less than 27 characters.", false);
     return;
   }
 
@@ -35,7 +35,7 @@ user.login = function(user, callback) {
         return;
       }
       if (rows.length == 0) {
-        callback(null, false);
+        callback("Incorrect Username", false);
         return;
       }
       var phash = rows[0].password;
@@ -45,7 +45,7 @@ user.login = function(user, callback) {
           return;
         }
         if (!result) {
-          callback(null, false);
+          callback("Incorrect Password", false);
           return;
         }
         callback(null, true);
@@ -59,34 +59,34 @@ user.register = function(registrant, callback) {
 
   for(var prop in registrant) {
     if (typeof registrant[prop] === "undefined" || registrant[prop] == "") {
-      callback(null, false);
+      callback("Not all fields are filled in.", false);
       return;
     }
   }
 
   var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!regex.test(registrant.email)) {
-    callback(null, false);
+    callback("Inproper Email Format", false);
     return;
   }
 
   if (registrant.username.length > 26) {
-    callback(null, false);
+    callback("Username must be less than 27 characters.", false);
     return;
   }
 
   if (registrant.password != registrant.passwordConfirm) {
-    callback(null, false);
+    callback("The two passwords did not match.", false);
     return;
   }
 
-  if (registrant.password.length < 1) {
-    callback(null, false);
+  if (registrant.password.length < 8) {
+    callback("Password must be greater than 7 characters", false);
     return;
   }
 
-  if (registrant.age < 0||registrant.age > 150) {
-    callback(null, false);
+  if (registrant.age < 19||registrant.age > 99) {
+    callback("You must be between 19 and 99 years of age to enter.", false);
     return;
   }
 
@@ -103,7 +103,7 @@ user.register = function(registrant, callback) {
       }
       if (rows.length > 0) {
         connection.release();
-        callback(null, false);
+        callback("Username has already been taken. YooiiiNk", false);
         return;
       }
 
@@ -115,7 +115,7 @@ user.register = function(registrant, callback) {
         }
         if (rows.length > 0) {
           connection.release();
-          callback(null, false);
+          callback("Email has already been used.", false);
           return;
         }
 
@@ -212,6 +212,10 @@ user.sendResetCode = function(user, callback) {
       db.pool.query("SELECT username FROM members WHERE email = ?", [user.email], function(err, rows, field) {
         if (err) {
           throw "Error accessing members table"
+        }
+        if (rows.length == 0) {
+          callback("Incorrect Email");
+          return;
         }
         fs.readFile("./views/mail/resetPassword.hbs", function(err, data) {
           if (err) {

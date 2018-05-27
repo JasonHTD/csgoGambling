@@ -9,11 +9,14 @@ module.exports = function(req, res, next) {
   };
   User.login(user, function(err, validLogin){
     if (err) {
+      res.locals.errors.push(err);
       res.locals.validLogin = false;
       next();
       return;
     }
     if (!validLogin) {
+      res.locals.errors.push(err);
+      console.log(res.locals.errors);
       res.locals.validLogin = false;
       next();
       return;

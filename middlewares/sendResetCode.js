@@ -10,7 +10,8 @@ var user = {
 };
 User.sendResetCode(user, function(err) {
 if (err) {
-  console.log(err);
+  res.locals.resetCodeNotSent = true;
+  res.locals.errors.push(err);
   next();
   return;
 }

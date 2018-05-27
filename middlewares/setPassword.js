@@ -1,7 +1,7 @@
 var User = require("../models/user");
 
 module.exports = function(req, res, next) {
-  if (res.locals.resetCodeSent) {
+  if (res.locals.resetCodeSent||res.locals.resetCodeNotSent) {
     next();
     return;
   }
@@ -29,7 +29,6 @@ module.exports = function(req, res, next) {
 
   User.setPassword(user, function(err) {
     if (err) {
-      console.log(err);
       res.locals.errors.push(err)
       next();
       return;
