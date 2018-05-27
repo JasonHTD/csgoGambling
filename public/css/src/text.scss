@@ -12,7 +12,7 @@ font-size: 22px;
 font-size: 32px;
 }
 .text.xlarge{
-font-size: 64px;
+font-size: 72px;
 }
 .text.xxlarge{
 font-size: 96px;
@@ -93,4 +93,7 @@ a.text{
 }
 .text.nolink{
   text-decoration: none;
+}
+.text.xbold{
+  font-weight: 900;
 }

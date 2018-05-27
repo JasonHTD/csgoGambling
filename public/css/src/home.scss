@@ -1,13 +1,13 @@
-.top-left-picture{
+.left-picture{
   background-image: url("/images/home/purple-crate.png");
   background-position: 100% 100%;
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 40%;
+  left: 30%;
   filter: grayscale(100%);
 }
-.top-right-picture{
+.right-picture{
   background-image: url("/images/home/awp-asiimov.png");
   background-position: 100% 100%;
   width: 50%;
@@ -17,37 +17,26 @@
   background-repeat: repeat-y;
   filter: grayscale(100%);
 }
-.bottom-left-picture{
-  background-image: url("/images/home/safe.png");
-  background-position: 100% 100%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 40%;
-  background-size: 25%;
-}
-.bottom-right-picture{
-  background-image: url("/images/home/safe-open.png");
-  background-position: 120% 100%;
-  width: 60%;
-  height: 100%;
-  position: absolute;
-  left: 40%;
-  background-size: 55%;
-}
 .block-container{
   display: block;
   height: 100vh;
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 .block-content{
   position: absolute;
-  left: 5%;
-  bottom: 5%;
+  left: 0;
+  bottom: 1.5%;
   transition: 0.3s;
   color: #000;
   width: 30%;
+}
+.block-content-left{
+
+}
+.block-content-right{
+  left: 5%;
 }
 .block-description{
   transition: 0.3s;
@@ -55,91 +44,63 @@
   overflow: auto;
   font-style: italic;
   text-align: center;
-  left: 5%;
+  left: 0;
   bottom: 5%;
   color: inherit;
 }
 .block-title{
-  left: 5%;
-  bottom: 15%;
+  left: 0;
+  bottom: 0;
   transition: 0.3s;
   color: inherit;
   text-align: center;
+  line-height: 50%;
 }
-.top-left{
+.block-title-left{
+}
+.block-title-right{
+left: 3%;
+}
+.left{
   position: absolute;
   top: 0;
   left: 0;
   width: 50%;
-  height: 50%;
+  height: 100%;
   background-color: #FFF;
 }
-.top-right{
+.right{
   position: absolute;
   top: 0;
   left: 50%;
   width: 50%;
-  height: 50%;
-  background-color: #FFF;
-}
-.bottom-left{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50%;
-  height: 50%;
-  background-color: #FFF;
-}
-.bottom-right{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
+  height: 100%;
   background-color: #FFF;
 }
 .block{
 transition: 0.3s;
 }
-.top-left:hover{
+.left:hover{
   background-color: #823;
 }
-.top-right:hover{
+.right:hover{
   background-color: #BCD2EE;
 }
-.bottom-left:hover{
-  background-color: #498E36;
-}
-.bottom-right:hover{
-  background-color: #744FC6;
-}
-.top-left:hover .block-title{
+.left:hover .block-title{
   color: #B961AC;
 }
-.top-right:hover .block-title{
+.right:hover .block-title{
   color: #E5571F;
 }
-.bottom-left:hover .block-title{
-  color: #EEE;
-}
-.bottom-right:hover .block-title{
-  color: #EEE;
-}
-.top-left:hover .block-description{
+.left:hover .block-description{
   color: #B961AC;
 }
-.top-right:hover .block-description{
+.right:hover .block-description{
   color: #E5571F;
 }
-.bottom-left:hover .block-description{
-  color: #EEE;
-}
-.bottom-right:hover .block-description{
-  color: #EEE;
-}
-.top-left:hover .top-left-picture{
+.left:hover .left-picture{
   filter: grayscale(0%);
 }
-.top-right:hover .top-right-picture{
+.right:hover .right-picture{
   filter: grayscale(0%);
 }
